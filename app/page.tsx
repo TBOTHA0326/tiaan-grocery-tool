@@ -548,8 +548,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-md rounded-[2rem] border border-slate-200 bg-white px-6 py-8 shadow-soft dark:border-slate-700/60 dark:bg-slate-950">
           <div className="space-y-3 text-center">
             <p className="text-sm uppercase tracking-[0.28em] text-slate-500 dark:text-slate-400">Grocery list</p>
-            <h1 className="text-3xl font-semibold text-slate-950 dark:text-slate-100">Sign in to keep your list private.</h1>
-            <p className="text-sm leading-6 text-slate-600 dark:text-slate-400">Use your email and password to save items to your own account.</p>
+            <h1 className="text-3xl font-semibold text-slate-950 dark:text-slate-100">Hi Hannah / Tiaan (:</h1>
+            <p className="text-sm leading-6 text-slate-600 dark:text-slate-400">Sign in to manage your groceries!</p>
           </div>
 
           <form className="mt-8 space-y-4" onSubmit={handleAuthSubmit}>
