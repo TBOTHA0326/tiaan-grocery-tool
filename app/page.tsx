@@ -232,7 +232,7 @@ export default function HomePage() {
     const uncategorizedItems = items.filter((item) => !categories.some((category) => category.id === item.category_id));
     if (uncategorizedItems.length > 0) {
       grouped.push({
-        category: { id: 'uncategorized', name: 'Other', icon: 'Tag', created_at: new Date().toISOString() },
+        category: { id: 'uncategorized', name: 'Other', icon: 'Tag', user_id: null, created_at: new Date().toISOString() },
         items: uncategorizedItems.sort((a, b) => a.position - b.position),
       });
     }
