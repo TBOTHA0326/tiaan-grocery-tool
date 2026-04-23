@@ -1,25 +1,16 @@
--- Supabase migration: grocery list core schema
+-- Optional Supabase migration: simple tracker schema
 create extension if not exists pgcrypto;
 
-create table if not exists categories (
+create table if not exists entries (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id),
+  entry_type text not null check (entry_type in ('grocery', 'expense')),
   name text not null,
-  icon text,
-  created_at timestamptz not null default now(),
-  unique (user_id, name)
-);
-
-create table if not exists items (
-  id uuid primary key default gen_random_uuid(),
-  user_id uuid not null references auth.users(id),
-  name text not null,
-  category_id uuid references categories(id) on delete set null,
-  quantity text,
-  price numeric(10,2),
-  completed boolean not null default false,
-  position integer not null default 0,
+  category text not null,
+  quantity integer not null default 1,
+  amount numeric(10,2) not null default 0,
+  purchased boolean not null default false,
   created_at timestamptz not null default now()
 );
 
-create index if not exists idx_items_category_position on items(user_id, category_id, position);
+create index if not exists idx_entries_user_created_at on entries(user_id, created_at desc);

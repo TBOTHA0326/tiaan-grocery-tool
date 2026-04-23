@@ -4,12 +4,9 @@
 
 :root {
   color-scheme: light;
-  color: #0f172a;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: #f8fafc;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  line-height: 1.5;
+  color: #0f172a;
 }
 
 html {
@@ -18,49 +15,30 @@ html {
 
 body {
   min-height: 100dvh;
-  margin: 0;
-  background: radial-gradient(circle at top, rgba(15, 118, 110, 0.08), transparent 32%), #f8fafc;
+  background-color: #f8fafc;
 }
 
 * {
   box-sizing: border-box;
 }
 
+::selection {
+  background: #d1fae5;
+  color: #065f46;
+}
+
 button,
 input,
-textarea,
-select {
+select,
+textarea {
   font: inherit;
 }
 
-::selection {
-  background: #0f766e;
-  color: white;
-}
-
-html.dark {
-  color-scheme: dark;
-  background: #020617;
-}
-
-html.dark body {
-  background: #040812;
-  color: #e2e8f0;
-  background-image: radial-gradient(circle at top, rgba(15, 118, 110, 0.12), transparent 28%);
-}
-
-body.dark .surface-card {
-  background: rgba(15, 23, 42, 0.88);
-  border-color: rgba(148, 163, 184, 0.12);
-}
-
-.bottom-sheet {
-  backdrop-filter: blur(18px);
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(148, 163, 184, 0.15);
-}
-
-html.dark .bottom-sheet {
-  background: rgba(15, 23, 42, 0.92);
-  border-color: rgba(148, 163, 184, 0.14);
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at top left, rgba(16, 185, 129, 0.08), transparent 24%),
+    radial-gradient(circle at right 30%, rgba(148, 163, 184, 0.06), transparent 18%);
 }

@@ -1,29 +1,16 @@
-# Tiaan Grocery Tool
+# Tiaan Grocery + Expense Tracker
 
-A minimalist grocery list web app built with Next.js, TypeScript, Tailwind CSS, and Supabase.
+A clean grocery and expense tracker. Add grocery items and expenses, assign categories, mark purchases, and keep entries synced through Supabase.
 
-## Features
+## What it does
 
-- Grocery items grouped by category
-- Add, edit, complete, delete items
-- Drag-and-drop ordering with mobile fallback controls
-- Category management with custom icons
-- Item price support in South African rand (R)
-- Bottom-sheet modals optimized for mobile
-- Supabase auth with email/password login
-- Supabase persistence with realtime sync
-- Light / dark theme toggle
+- Add grocery and expense entries in one simple workflow
+- Track grocery quantities and purchase status
+- See grocery totals, expense totals, and combined value
+- Save data to Supabase for cross-device sync
+- Local fallback remains available if you are not signed in
 
-## Tech stack
-
-- Next.js App Router
-- React + TypeScript
-- Tailwind CSS
-- Supabase Postgres
-- Lucide icons
-- dnd-kit for reorder interactions
-
-## Setup
+## Run locally
 
 1. Install dependencies:
 
@@ -31,30 +18,31 @@ A minimalist grocery list web app built with Next.js, TypeScript, Tailwind CSS, 
 npm install
 ```
 
-2. Create `./.env.local` with your Supabase details:
+2. Create a `.env.local` file with your Supabase details:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-3. Run the app locally:
+3. Apply the Supabase migration or create the `entries` table using `supabase/migrations/0001_init.sql`.
+
+4. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-4. Initialize Supabase schema with the migration SQL in `supabase/migrations/0001_init.sql`.
+5. Open the app at `http://localhost:3000`
 
-## Deployment
+## Notes
 
-Deploy on Vercel using the same environment variables.
+- Sign in with email/password to sync your list across devices.
+- If you do not sign in, the app still keeps a local copy in the browser.
 
-## Project structure
+## Project files
 
-- `app/` – Next.js application routes and layout
-- `components/` – reusable UI primitives and sheet components
-- `lib/` – Supabase client helper
-- `hooks/` – utility hooks for local storage
-- `supabase/migrations/` – database schema migrations
-- `.env.local` – local Supabase config
+- `app/` – application UI and page routes
+- `components/Tracker.tsx` – core tracker interface and Supabase sync logic
+- `app/globals.css` – global styling
+- `supabase/migrations/` – DB schema for cross-device storage
